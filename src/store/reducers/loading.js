@@ -10,6 +10,7 @@ export default (state = initialState, { type, payload }) => {
     switch (type) {
 
     case actionTypes.CHANGE:
+        console.log("loading")
         return { ...state, ...payload }
 
     default:

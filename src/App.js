@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Routes from './routes';
 import './global.css';
 
-import { Loading } from './view/components';
+import { Loading, Notify, Alert } from './view/components';
 
 const theme = createTheme({
   palette: {
@@ -36,7 +36,9 @@ const App = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <Loading/>
+        <Alert />
+        <Notify />
+        <Loading />
         <Routes />
       </ThemeProvider>
     </Provider>
