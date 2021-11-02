@@ -7,13 +7,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Routes from './routes';
 import './global.css';
 
-import { Loading, Notify, Alert } from './view/components';
+import { Loading, Notify, Alert, Confirm } from './view/components';
 
 const theme = createTheme({
   palette: {
-    primary: {
-      main: purple[900]
-    }
   },
   components: {
     MuiTextField: {
@@ -36,6 +33,10 @@ const App = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
+        <Confirm open={true}
+        onClose={() => alert('close')}
+        onConfirm={() => alert('confirm')}
+        />
         <Alert />
         <Notify />
         <Loading />

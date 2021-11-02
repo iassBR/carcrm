@@ -2,7 +2,7 @@ import { actionTypes } from "../actions/alert"
 
 
 const initialState = {
-    open: true,
+    open: false,
     time: 3000,
     class: 'success',
     message: 'Lorem ipsu...'
