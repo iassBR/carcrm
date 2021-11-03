@@ -2,6 +2,7 @@ import React from 'react'
 import { Typography, TextField, Button } from '@mui/material'
 import { authChange, login } from '../../store/actions/auth';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect } from 'react-router';
 
 export default function Auth() {
     const dispatch = useDispatch();
@@ -47,6 +48,8 @@ export default function Auth() {
                             className="my-4"
                             onClick={() => dispatch(login(credentials))}
                         >Entrar </Button>
+
+                        {(success) && <Redirect to="/veiculos" />}
                     </div>
                 </div>
             </div>
