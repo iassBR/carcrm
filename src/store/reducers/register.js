@@ -13,9 +13,10 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
   switch (type) {
     case actionTypes.CHANGE:
+      console.log("change value", state,  payload)
       return {
         ...state,
-        user: { ...state, ...payload },
+        user: { ...state.user, ...payload },
       };
 
     case actionTypes.SUCCESS:

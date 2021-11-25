@@ -1,4 +1,4 @@
-import { Http } from " ../../config/Http";
+import { Http } from "../../config/Http";
 import { changeLoading } from "./loading";
 import { changeNotify } from "./notify";
 
@@ -28,6 +28,7 @@ export const setUserToken = (token) => (dispatch) => {
 
   dispatch(
     changeRegister({
+      name: "",
       email: "",
       password: "",
     })
@@ -43,7 +44,7 @@ export const register = (data) => (dispatch) => {
       message: "Cadastrando Usuário",
     })
   );
-
+console.log("data", JSON.stringify(data))
   return Http.post("/auth/register", data)
     .then((response) => {
       if (typeof response !== "undefined") {
@@ -63,9 +64,9 @@ export const register = (data) => (dispatch) => {
       }
     })
     .catch((error) => {
-      if (errorr.response) {
+      if (error.response) {
         dispatch(changeLoading({ open: false }));
-        dispatch(changeError(error.rsponse.data.errors));
+        dispatch(changeError(error.response.data.errors));
       }
     });
 };
